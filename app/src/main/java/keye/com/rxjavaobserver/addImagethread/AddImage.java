@@ -10,11 +10,10 @@ import keye.com.rxjavaobserver.MainActivity;
 /**
  * Created by Administrator on 2016-09-09.
  */
-public class AddImageThread {
+public class AddImage {
     private ImageCollectorView imageCollectorView;
 
     public void addImage(final File[] folders, final Context context) {
-
         new Thread() {
             @Override
             public void run() {
