@@ -3,6 +3,7 @@ package keye.com.rxjavaobserver.addImagethread;
 import android.graphics.Bitmap;
 
 import java.io.File;
+import java.util.List;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -14,12 +15,12 @@ import rx.schedulers.Schedulers;
  * Created by Administrator on 2016-09-09.
  */
 public class RxAddImage {
-    private ImageCollectorView imageCollectorView;
-    private File[] folders;
+    private ImageListAdatper imageListAdatper;
+    private File[] routes;
+    private List imageList;
 
-    public void addImage() {
-
-        Observable.from(folders)
+    public void updataImage() {
+        Observable.from(routes)
                 .flatMap(new Func1<File, Observable<File>>() {
                     @Override
                     public Observable<File> call(File file) {
@@ -29,13 +30,13 @@ public class RxAddImage {
                 .filter(new Func1<File, Boolean>() {
                     @Override
                     public Boolean call(File file) {
-                        return file.getName().endsWith(".png");
+                        return file.getName().endsWith(".jpg");
                     }
                 })
                 .map(new Func1<File, Bitmap>() {
                     @Override
                     public Bitmap call(File file) {
-                        return getBitmapFromFile(file);
+                        return getBitmap(file);
                     }
                 })
                 .subscribeOn(Schedulers.io())
@@ -43,18 +44,19 @@ public class RxAddImage {
                 .subscribe(new Action1<Bitmap>() {
                     @Override
                     public void call(Bitmap bitmap) {
-                        imageCollectorView.addImage(bitmap);
+                        imageList.add(bitmap);
+                        imageListAdatper.notifyDataSetChanged();
                     }
                 });
     }
 
-    private Bitmap getBitmapFromFile(File file) {
+    private Bitmap getBitmap(File file) {
         //获取图片代码
         return null;
     }
 
-    class ImageCollectorView {
-        public void addImage(Bitmap bitmap) {
+    class ImageListAdatper {
+        public void notifyDataSetChanged() {
         }
     }
 }
