@@ -28,22 +28,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //³õÊ¼»¯Logger
+        //åˆå§‹åŒ–Logger
         Logger.init(TAG_RxJava).logLevel(LogLevel.FULL);
 
 //        test01();
-//        test02();
+        test02();
 //        test03();
 //        test04();
-        test07();
+//        test07();
     }
 
     /**
-     * Ê¹ÓÃ Observable.create() ·½·¨À´´´½¨Ò»¸ö Observable ²¢ÎªËü¶¨ÒåÊÂ¼ş´¥·¢¹æÔò
+     * ä½¿ç”¨ Observable.create() æ–¹æ³•æ¥åˆ›å»ºä¸€ä¸ª Observable å¹¶ä¸ºå®ƒå®šä¹‰äº‹ä»¶è§¦å‘è§„åˆ™
      */
     public void test01() {
 
-        //´´½¨Observable
+        //åˆ›å»ºObservable
         Observable<String> observable = Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //´´½¨Observer
+        //åˆ›å»ºObserver
         Observer<String> observer = new Observer<String>() {
             @Override
             public void onCompleted() {
@@ -71,22 +71,22 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        //¶©ÔÄ
+        //è®¢é˜…
         observable.subscribe(observer);
 
     }
 
     /**
-     * Observable´´½¨from()
+     * Observableåˆ›å»ºfrom()
      */
     public void test02() {
-
-        String[] array = new String[]{"Hello World!", "Hello KeYe!", "Hello jikexueyuan"};
+        new String[]{"Hello World!", "Hello KeYe!", "Hello jikexueyuan"}
+        String[] array = ;
         List<String> list = new ArrayList<>();
-        //´´½¨Observable
+        //åˆ›å»ºObservable
         Observable<String> observable = Observable.from(array);
 
-        //´´½¨Observer
+        //åˆ›å»ºObserver
         Observer<String> observer = new Observer<String>() {
             @Override
             public void onCompleted() {
@@ -110,14 +110,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Observable²Ù×÷·ûjust()
+     * Observableæ“ä½œç¬¦just()
      */
     public void test03() {
 
-        //´´½¨Observable
+        //åˆ›å»ºObservable
         Observable<String> observable = Observable.just("Hello", "RxJava", "jikexuey");
 
-        //´´½¨Observer
+        //åˆ›å»ºObserver
         Observer<String> observer = new Observer<String>() {
             @Override
             public void onCompleted() {
@@ -141,13 +141,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * subscribe()²»ÍêÕû»Øµ÷
+     * subscribe()ä¸å®Œæ•´å›è°ƒ
      */
     public void test04() {
-        //´´½¨Observable
+        //åˆ›å»ºObservable
         Observable<String> observable = Observable.just("Hello", "RxJava", "jikexuey");
 
-        //2:²»ÍêÕû»Øµ÷½Ó¿Ú
+        //2:ä¸å®Œæ•´å›è°ƒæ¥å£
         Action1 onNextAction = new Action1() {
             @Override
             public void call(Object o) {
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Map()±ä»»²Ù×÷·û
+     * Map()å˜æ¢æ“ä½œç¬¦
      */
     public void text05() {
         Integer[] array = new Integer[]{1, 2, 3, 4};
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * FlatMap()²Ù×÷·û
+     * FlatMap()æ“ä½œç¬¦
      */
     public void test06() {
         Observable.from(DataUtils.getData())
@@ -231,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * SchedulersµÄAPI
+     * Schedulersçš„API
      */
     public void test07() {
         Observable.from(DataUtils.getData2())
@@ -247,18 +247,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //³ÇÊĞÁĞ±í
-    String[] array = new String[]{"±±¾©", "Ìì½ò", "Ê¯¼Ò×¯", "±£¶¨"};
+    //åŸå¸‚åˆ—è¡¨
+    String[] array = new String[]{"åŒ—äº¬", "å¤©æ´¥", "çŸ³å®¶åº„", "ä¿å®š"};
 
-    //List¼¯ºÏ
+    //Listé›†åˆ
     List<SceneryInfo> SceneryInfos = new ArrayList() {
     };
 
-    //³ÇÊĞ¾°µãÀà
+    //åŸå¸‚æ™¯ç‚¹ç±»
     class SceneryInfo {
     }
 
-    //Ä£ÄâÍøÂçÇëÇó£¬·µ»ØSceneryInfo
+    //æ¨¡æ‹Ÿç½‘ç»œè¯·æ±‚ï¼Œè¿”å›SceneryInfo
     private SceneryInfo getSceneryInfo(String city) {
 
         return new SceneryInfo();
@@ -273,8 +273,8 @@ public class MainActivity extends AppCompatActivity {
                         return Observable.just(getSceneryInfo(s));
                     }
                 })
-                .subscribeOn(Schedulers.io())//ÍøÂçÇëÇóÔÚIOÏß³ÌÖ´ĞĞ
-                .observeOn(AndroidSchedulers.mainThread()).//¸üĞÂuiÔÚÖ÷Ïß³ÌÖ´ĞĞ
+                .subscribeOn(Schedulers.io())//ç½‘ç»œè¯·æ±‚åœ¨IOçº¿ç¨‹æ‰§è¡Œ
+                .observeOn(AndroidSchedulers.mainThread()).//æ›´æ–°uiåœ¨ä¸»çº¿ç¨‹æ‰§è¡Œ
                 subscribe(new Subscriber<SceneryInfo>() {
             @Override
             public void onCompleted() {
@@ -288,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNext(SceneryInfo weatherInfo) {
-                //Ìí¼Ó¾°µãÊı¾İ
+                //æ·»åŠ æ™¯ç‚¹æ•°æ®
                 SceneryInfos.add(weatherInfo);
             }
         });

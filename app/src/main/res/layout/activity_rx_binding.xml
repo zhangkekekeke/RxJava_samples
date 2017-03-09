@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="keye.com.rxjavaobserver.activity.RxBindingActivity">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/rxbinding_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            tools:targetApi="21"
+            />
+
+    </android.support.design.widget.AppBarLayout>
+
+   <LinearLayout
+       android:id="@+id/mlayout"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="8"
+       android:orientation="vertical"
+       ></LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/mRadioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/simple_click_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="各类点击事件"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_centerHorizontal="true"
+            ></RadioButton>
+
+        <RadioButton
+            android:id="@+id/auto_text_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="自动补完text"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_centerHorizontal="true"
+            ></RadioButton>
+
+        <RadioButton
+            android:id="@+id/checkbox_btn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="注册场景"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_centerHorizontal="true"
+            ></RadioButton>
+
+    </RadioGroup>
+
+</LinearLayout>

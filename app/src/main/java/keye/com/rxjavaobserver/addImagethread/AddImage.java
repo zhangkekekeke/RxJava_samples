@@ -48,31 +48,6 @@ public class AddImage {
     }
 
 
-    public void updataImageCopy(final File[] routes, final Context context) {
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                for (File route : routes) {
-                    File[] files = route.listFiles();
-                    for (File file : files) {
-                        if (file.getName().endsWith(".jpg")) {
-                            final Bitmap bitmap = getBitmap(file);
-                            ((MainActivity) context).runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    imageList.add(bitmap);
-                                    imageListAdatper.notifyDataSetChanged();
-                                }
-                            });
-                        }
-                    }
-                }
-            }
-        }.start();
-
-    }
-
     private Bitmap getBitmap(File file) {
         //获取图片代码
         return null;

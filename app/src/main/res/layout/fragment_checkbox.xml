@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
+    android:gravity="center_horizontal"
+    tools:context="keye.com.rxjavaobserver.fragments.rxbindingFragments.CheckboxFragment">
+
+    <CheckBox
+        android:id="@+id/sign_checkbox"
+        android:layout_width="@dimen/text_width"
+        android:layout_height="wrap_content"
+        android:text="@string/check_text"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/sign_btn"
+        android:layout_marginTop="87dp" />
+
+    <Button
+        android:id="@+id/sign_btn"
+        android:layout_width="@dimen/text_width"
+        android:layout_height="wrap_content"
+        android:text="@string/sign"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:background="@color/gray"
+        android:layout_below="@+id/sign_checkbox"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

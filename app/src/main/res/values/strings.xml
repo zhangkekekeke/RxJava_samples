@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">RxJavaObserver</string>
+    <string name="RxAndroid">RxAndroid</string>
+    <string name="permisionYes">权限获取失败，用户没有选择不再提示</string>
+    <string name="permisionyNo">无法获取相机权限</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_text">添加</string>
+    <string name="edit_text">编辑</string>
+    <string name="delete_text">删除</string>
+    <string name="sign">注  册</string>
+    <string name="check_text">是否同意</string>
 </resources>

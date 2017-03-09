@@ -12,7 +12,7 @@ import rx.Observable;
 public class DataUtils {
 
 
-    //耗时操作
+    //鑰楁椂鎿嶄綔
     public static List<Integer> getData2() {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -31,7 +31,7 @@ public class DataUtils {
         final int[] i = {0};
         List<Author> authorList = new ArrayList<>();
 
-        Observable.just("张三", "王二", "轲叶")
+        Observable.just("寮犱笁", "鐜嬩簩", "杞插彾")
                 .map(name -> new Author(name))
                 .map(author -> {
                     author.getArticles().add("article" + i[0]++);
